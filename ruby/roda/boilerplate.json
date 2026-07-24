@@ -1,0 +1,13 @@
+{
+  "id": "ruby/roda",
+  "name": "Roda",
+  "language": "ruby",
+  "framework": "roda",
+  "type": "api",
+  "runtime": "ruby",
+  "packageManager": null,
+  "port": 9292,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Small Roda web API."
+}

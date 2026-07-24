@@ -1,0 +1,13 @@
+{
+  "id": "javascript/koa",
+  "name": "Koa",
+  "language": "javascript",
+  "framework": "koa",
+  "type": "api",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Minimal Koa API."
+}

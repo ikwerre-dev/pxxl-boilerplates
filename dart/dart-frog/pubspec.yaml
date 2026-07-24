@@ -1,0 +1,7 @@
+name: pxxl_dart_frog
+environment:
+  sdk: ^3.8.0
+dependencies:
+  dart_frog: ^1.2.0
+dev_dependencies:
+  dart_frog_cli: ^1.2.0

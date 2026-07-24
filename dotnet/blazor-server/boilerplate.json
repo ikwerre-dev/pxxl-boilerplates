@@ -1,0 +1,13 @@
+{
+  "id": "dotnet/blazor-server",
+  "name": "Blazor Server",
+  "language": "dotnet",
+  "framework": "blazor",
+  "type": "fullstack",
+  "runtime": "dotnet",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Blazor interactive server application."
+}

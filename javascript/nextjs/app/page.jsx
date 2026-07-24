@@ -1,0 +1,1 @@
+export default function Page(){return <main><span className="eyebrow">Pxxl boilerplate</span><h1>Next.js</h1><p>App Router full-stack deployment.</p><div className="status"><span className="dot"/>Runtime ready</div></main>}

@@ -1,0 +1,11 @@
+name: pxxl_flutter_web
+description: Flutter web starter for Pxxl
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: ^3.8.0
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  uses-material-design: true

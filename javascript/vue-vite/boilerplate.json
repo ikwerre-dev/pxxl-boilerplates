@@ -1,0 +1,13 @@
+{
+  "id": "javascript/vue-vite",
+  "name": "Vue Vite",
+  "language": "javascript",
+  "framework": "vue",
+  "type": "static",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "dist",
+  "description": "Vue SPA built with Vite."
+}

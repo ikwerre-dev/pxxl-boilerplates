@@ -1,0 +1,13 @@
+{
+  "id": "javascript/hono",
+  "name": "Hono",
+  "language": "javascript",
+  "framework": "hono",
+  "type": "api",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Hono API running on Node.js."
+}

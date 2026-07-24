@@ -1,0 +1,13 @@
+{
+  "id": "jvm/quarkus-java",
+  "name": "Quarkus Java",
+  "language": "jvm",
+  "framework": "quarkus",
+  "type": "api",
+  "runtime": "jvm",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Quarkus REST API."
+}

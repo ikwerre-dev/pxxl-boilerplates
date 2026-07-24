@@ -1,0 +1,13 @@
+{
+  "id": "javascript/nextjs",
+  "name": "Nextjs",
+  "language": "javascript",
+  "framework": "nextjs",
+  "type": "fullstack",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Next.js App Router full-stack starter with standalone output."
+}

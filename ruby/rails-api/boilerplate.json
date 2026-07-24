@@ -1,0 +1,13 @@
+{
+  "id": "ruby/rails-api",
+  "name": "Rails Api",
+  "language": "ruby",
+  "framework": "rails",
+  "type": "api",
+  "runtime": "ruby",
+  "packageManager": null,
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Rails API-only starter."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "static/html-css-js",
+  "name": "Html Css Js",
+  "language": "static",
+  "framework": "vanilla",
+  "type": "static",
+  "runtime": "static",
+  "packageManager": null,
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": null,
+  "description": "Zero-build HTML, CSS, and JavaScript starter."
+}

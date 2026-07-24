@@ -1,0 +1,1 @@
+using Microsoft.AspNetCore.Mvc;[ApiController]public class HomeController:ControllerBase{[HttpGet("/")]public object Root()=>new{service="Pxxl .NET Controllers API"};[HttpGet("/health")]public object Health()=>new{status="ok"};[HttpGet("/api")]public object Api()=>new{message="Hello from .NET"};}

@@ -1,0 +1,13 @@
+{
+  "id": "javascript/nuxt",
+  "name": "Nuxt",
+  "language": "javascript",
+  "framework": "nuxt",
+  "type": "fullstack",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Nuxt full-stack starter with Nitro."
+}

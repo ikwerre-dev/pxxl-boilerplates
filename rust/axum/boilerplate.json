@@ -1,0 +1,13 @@
+{
+  "id": "rust/axum",
+  "name": "Axum",
+  "language": "rust",
+  "framework": "axum",
+  "type": "api",
+  "runtime": "rust",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Tokio and Axum async API."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "javascript/nestjs",
+  "name": "Nestjs",
+  "language": "javascript",
+  "framework": "nestjs",
+  "type": "api",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "NestJS API using the Express adapter."
+}

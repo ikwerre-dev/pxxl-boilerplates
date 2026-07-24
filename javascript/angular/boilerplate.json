@@ -1,0 +1,13 @@
+{
+  "id": "javascript/angular",
+  "name": "Angular",
+  "language": "javascript",
+  "framework": "angular",
+  "type": "static",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "dist/browser",
+  "description": "Angular standalone application."
+}

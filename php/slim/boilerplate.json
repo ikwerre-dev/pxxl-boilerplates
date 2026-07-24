@@ -1,0 +1,13 @@
+{
+  "id": "php/slim",
+  "name": "Slim",
+  "language": "php",
+  "framework": "slim",
+  "type": "api",
+  "runtime": "php",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Slim Framework JSON API."
+}

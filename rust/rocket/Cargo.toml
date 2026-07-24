@@ -1,0 +1,8 @@
+[package]
+name = "pxxl-rocket"
+version = "1.0.0"
+edition = "2024"
+
+[dependencies]
+rocket = { version = "0.5", features = ["json"] }
+serde_json = "1"

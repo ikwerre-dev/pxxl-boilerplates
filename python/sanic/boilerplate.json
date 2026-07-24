@@ -1,0 +1,13 @@
+{
+  "id": "python/sanic",
+  "name": "Sanic",
+  "language": "python",
+  "framework": "sanic",
+  "type": "api",
+  "runtime": "python",
+  "packageManager": null,
+  "port": 8000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "High-throughput Sanic API."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "javascript/svelte-vite",
+  "name": "Svelte Vite",
+  "language": "javascript",
+  "framework": "svelte",
+  "type": "static",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "dist",
+  "description": "Svelte SPA built with Vite."
+}

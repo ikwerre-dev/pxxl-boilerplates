@@ -1,0 +1,1 @@
+package dev.pxxl;import io.micronaut.http.annotation.*;import java.util.Map;@Controller public class Controller{@Get("/")Map<String,String>root(){return Map.of("service","Pxxl Micronaut API");}@Get("/health")Map<String,String>health(){return Map.of("status","ok");}@Get("/api")Map<String,String>api(){return Map.of("message","Hello from Micronaut");}}

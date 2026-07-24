@@ -1,0 +1,13 @@
+{
+  "id": "javascript/preact-vite",
+  "name": "Preact Vite",
+  "language": "javascript",
+  "framework": "preact",
+  "type": "static",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "dist",
+  "description": "Preact SPA built with Vite."
+}

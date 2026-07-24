@@ -1,0 +1,2 @@
+<?php
+namespace App;use Symfony\Component\HttpFoundation\JsonResponse;use Symfony\Component\Routing\Attribute\Route;class Controller{#[Route("/")]public function root(){return new JsonResponse(["service"=>"Pxxl Symfony API"]);}#[Route("/health")]public function health(){return new JsonResponse(["status"=>"ok"]);}#[Route("/api")]public function api(){return new JsonResponse(["message"=>"Hello from Symfony"]);}}

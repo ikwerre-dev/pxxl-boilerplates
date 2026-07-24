@@ -1,0 +1,13 @@
+{
+  "id": "javascript/node-api",
+  "name": "Node Api",
+  "language": "javascript",
+  "framework": "node",
+  "type": "api",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Dependency-free Node.js HTTP API."
+}

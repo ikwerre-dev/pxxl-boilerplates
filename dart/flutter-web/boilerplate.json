@@ -1,0 +1,13 @@
+{
+  "id": "dart/flutter-web",
+  "name": "Flutter Web",
+  "language": "dart",
+  "framework": "flutter",
+  "type": "static",
+  "runtime": "dart",
+  "packageManager": null,
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "build/web",
+  "description": "Flutter web static application."
+}

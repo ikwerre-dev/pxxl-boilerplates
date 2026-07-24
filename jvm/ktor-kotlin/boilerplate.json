@@ -1,0 +1,13 @@
+{
+  "id": "jvm/ktor-kotlin",
+  "name": "Ktor Kotlin",
+  "language": "jvm",
+  "framework": "ktor",
+  "type": "api",
+  "runtime": "jvm",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Ktor Kotlin REST API."
+}

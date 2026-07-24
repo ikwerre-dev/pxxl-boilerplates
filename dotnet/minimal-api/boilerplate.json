@@ -1,0 +1,13 @@
+{
+  "id": "dotnet/minimal-api",
+  "name": "Minimal Api",
+  "language": "dotnet",
+  "framework": "aspnetcore",
+  "type": "api",
+  "runtime": "dotnet",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "ASP.NET Core Minimal API."
+}

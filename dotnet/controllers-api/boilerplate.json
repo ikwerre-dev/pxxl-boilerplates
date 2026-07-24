@@ -1,0 +1,13 @@
+{
+  "id": "dotnet/controllers-api",
+  "name": "Controllers Api",
+  "language": "dotnet",
+  "framework": "aspnetcore",
+  "type": "api",
+  "runtime": "dotnet",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "ASP.NET Core controller-based API."
+}

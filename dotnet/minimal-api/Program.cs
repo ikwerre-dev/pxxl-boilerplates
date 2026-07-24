@@ -1,0 +1,1 @@
+var builder=WebApplication.CreateBuilder(args);var app=builder.Build();app.MapGet("/",()=>Results.Ok(new{service="Pxxl .NET Minimal API"}));app.MapGet("/health",()=>Results.Ok(new{status="ok"}));app.MapGet("/api",()=>Results.Ok(new{message="Hello from .NET"}));app.Run();

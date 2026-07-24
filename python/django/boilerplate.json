@@ -1,0 +1,13 @@
+{
+  "id": "python/django",
+  "name": "Django",
+  "language": "python",
+  "framework": "django",
+  "type": "api",
+  "runtime": "python",
+  "packageManager": null,
+  "port": 8000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Django API starter served by Gunicorn."
+}

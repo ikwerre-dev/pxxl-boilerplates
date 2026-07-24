@@ -1,0 +1,13 @@
+{
+  "id": "javascript/astro-static",
+  "name": "Astro Static",
+  "language": "javascript",
+  "framework": "astro",
+  "type": "static",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "dist",
+  "description": "Astro static site starter."
+}

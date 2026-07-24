@@ -1,0 +1,13 @@
+{
+  "id": "javascript/solid-vite",
+  "name": "Solid Vite",
+  "language": "javascript",
+  "framework": "solidjs",
+  "type": "static",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "dist",
+  "description": "SolidJS SPA built with Vite."
+}

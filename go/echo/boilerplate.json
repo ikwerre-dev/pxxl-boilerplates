@@ -1,0 +1,13 @@
+{
+  "id": "go/echo",
+  "name": "Echo",
+  "language": "go",
+  "framework": "echo",
+  "type": "api",
+  "runtime": "go",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Echo Go API starter."
+}

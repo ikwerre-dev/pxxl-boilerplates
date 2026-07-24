@@ -1,0 +1,8 @@
+[package]
+name = "pxxl-actix"
+version = "1.0.0"
+edition = "2024"
+
+[dependencies]
+actix-web = "4"
+serde_json = "1"

@@ -1,0 +1,1 @@
+import { render } from "solid-js/web"; import "./style.css"; const App=()=> <main><span class="eyebrow">Pxxl boilerplate</span><h1>Solid + Vite</h1><p>A fast static Solid starter.</p><div class="status"><span class="dot"/>Static edge ready</div></main>; render(App, document.getElementById("app"));

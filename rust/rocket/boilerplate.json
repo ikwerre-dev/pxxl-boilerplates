@@ -1,0 +1,13 @@
+{
+  "id": "rust/rocket",
+  "name": "Rocket",
+  "language": "rust",
+  "framework": "rocket",
+  "type": "api",
+  "runtime": "rust",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Rocket JSON API."
+}

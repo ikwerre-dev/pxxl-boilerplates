@@ -1,0 +1,13 @@
+{
+  "id": "rust/warp",
+  "name": "Warp",
+  "language": "rust",
+  "framework": "warp",
+  "type": "api",
+  "runtime": "rust",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Warp filter-based API."
+}

@@ -1,0 +1,10 @@
+{
+  "name": "pxxl/symfony",
+  "type": "project",
+  "require": {
+    "php": "^8.3",
+    "symfony/framework-bundle": "^7.3",
+    "symfony/runtime": "^7.3",
+    "symfony/yaml": "^7.3"
+  }
+}

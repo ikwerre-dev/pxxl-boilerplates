@@ -1,0 +1,10 @@
+{
+  "name": "@pxxlspace/boilerplates",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "test": "node scripts/validate.mjs"
+  }
+}

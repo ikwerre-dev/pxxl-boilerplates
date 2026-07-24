@@ -1,0 +1,13 @@
+{
+  "id": "go/gin",
+  "name": "Gin",
+  "language": "go",
+  "framework": "gin",
+  "type": "api",
+  "runtime": "go",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Gin Go API starter."
+}

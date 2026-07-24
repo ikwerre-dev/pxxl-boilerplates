@@ -1,0 +1,13 @@
+{
+  "id": "javascript/sveltekit",
+  "name": "Sveltekit",
+  "language": "javascript",
+  "framework": "sveltekit",
+  "type": "fullstack",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "SvelteKit server application using the Node adapter."
+}

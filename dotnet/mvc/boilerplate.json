@@ -1,0 +1,13 @@
+{
+  "id": "dotnet/mvc",
+  "name": "Mvc",
+  "language": "dotnet",
+  "framework": "aspnetcore-mvc",
+  "type": "fullstack",
+  "runtime": "dotnet",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "ASP.NET Core MVC web application."
+}

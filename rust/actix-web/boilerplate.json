@@ -1,0 +1,13 @@
+{
+  "id": "rust/actix-web",
+  "name": "Actix Web",
+  "language": "rust",
+  "framework": "actix-web",
+  "type": "api",
+  "runtime": "rust",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Actix Web JSON API."
+}

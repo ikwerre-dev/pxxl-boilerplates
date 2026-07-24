@@ -1,0 +1,13 @@
+{
+  "id": "php/symfony",
+  "name": "Symfony",
+  "language": "php",
+  "framework": "symfony",
+  "type": "api",
+  "runtime": "php",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Symfony HTTP kernel API starter."
+}

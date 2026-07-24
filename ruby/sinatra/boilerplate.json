@@ -1,0 +1,13 @@
+{
+  "id": "ruby/sinatra",
+  "name": "Sinatra",
+  "language": "ruby",
+  "framework": "sinatra",
+  "type": "api",
+  "runtime": "ruby",
+  "packageManager": null,
+  "port": 4567,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Sinatra JSON API."
+}

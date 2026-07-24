@@ -1,0 +1,13 @@
+{
+  "id": "python/flask",
+  "name": "Flask",
+  "language": "python",
+  "framework": "flask",
+  "type": "api",
+  "runtime": "python",
+  "packageManager": null,
+  "port": 8000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Flask API served by Gunicorn."
+}

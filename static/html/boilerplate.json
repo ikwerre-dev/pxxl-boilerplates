@@ -1,0 +1,13 @@
+{
+  "id": "static/html",
+  "name": "Html",
+  "language": "static",
+  "framework": "html",
+  "type": "static",
+  "runtime": "static",
+  "packageManager": null,
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": null,
+  "description": "Zero-build semantic HTML starter."
+}

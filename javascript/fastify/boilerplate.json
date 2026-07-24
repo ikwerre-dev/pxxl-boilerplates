@@ -1,0 +1,13 @@
+{
+  "id": "javascript/fastify",
+  "name": "Fastify",
+  "language": "javascript",
+  "framework": "fastify",
+  "type": "api",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Fastify API with structured routing."
+}

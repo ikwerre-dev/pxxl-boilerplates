@@ -1,0 +1,15 @@
+{
+  "name": "pxxl-koa",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "koa": "^2.16.0"
+  }
+}

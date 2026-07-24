@@ -1,0 +1,13 @@
+{
+  "id": "dart/dart-frog",
+  "name": "Dart Frog",
+  "language": "dart",
+  "framework": "dart-frog",
+  "type": "api",
+  "runtime": "dart",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Dart Frog file-based API starter."
+}

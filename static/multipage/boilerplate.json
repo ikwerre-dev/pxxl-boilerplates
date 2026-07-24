@@ -1,0 +1,13 @@
+{
+  "id": "static/multipage",
+  "name": "Multipage",
+  "language": "static",
+  "framework": "html",
+  "type": "static",
+  "runtime": "static",
+  "packageManager": null,
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": null,
+  "description": "Zero-build multi-page website with a custom 404 page."
+}

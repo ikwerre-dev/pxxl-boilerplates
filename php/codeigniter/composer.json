@@ -1,0 +1,7 @@
+{
+  "name": "pxxl/codeigniter",
+  "type": "project",
+  "require": {
+    "codeigniter4/framework": "^4.6"
+  }
+}

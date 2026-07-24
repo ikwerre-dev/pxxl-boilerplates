@@ -1,0 +1,13 @@
+{
+  "id": "python/starlette",
+  "name": "Starlette",
+  "language": "python",
+  "framework": "starlette",
+  "type": "api",
+  "runtime": "python",
+  "packageManager": null,
+  "port": 8000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Small ASGI API with Starlette."
+}

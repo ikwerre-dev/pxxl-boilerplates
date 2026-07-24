@@ -1,0 +1,13 @@
+{
+  "id": "javascript/express",
+  "name": "Express",
+  "language": "javascript",
+  "framework": "express",
+  "type": "api",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Express REST API with health and example routes."
+}

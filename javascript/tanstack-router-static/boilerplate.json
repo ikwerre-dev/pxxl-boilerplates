@@ -1,0 +1,13 @@
+{
+  "id": "javascript/tanstack-router-static",
+  "name": "Tanstack Router Static",
+  "language": "javascript",
+  "framework": "tanstack-router",
+  "type": "static",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "dist",
+  "description": "TanStack Router client-side application built with Vite."
+}

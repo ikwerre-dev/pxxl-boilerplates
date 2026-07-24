@@ -1,0 +1,15 @@
+{
+  "name": "pxxl-fastify",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "fastify": "^5.4.0"
+  }
+}

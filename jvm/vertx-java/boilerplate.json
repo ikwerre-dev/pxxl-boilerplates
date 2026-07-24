@@ -1,0 +1,13 @@
+{
+  "id": "jvm/vertx-java",
+  "name": "Vertx Java",
+  "language": "jvm",
+  "framework": "vertx",
+  "type": "api",
+  "runtime": "jvm",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Vert.x reactive Java API."
+}

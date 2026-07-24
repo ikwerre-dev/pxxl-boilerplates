@@ -1,0 +1,13 @@
+{
+  "id": "go/fiber",
+  "name": "Fiber",
+  "language": "go",
+  "framework": "fiber",
+  "type": "api",
+  "runtime": "go",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Fiber Go API starter."
+}

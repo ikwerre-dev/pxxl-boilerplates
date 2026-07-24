@@ -1,0 +1,13 @@
+{
+  "id": "javascript/tanstack-start",
+  "name": "Tanstack Start",
+  "language": "javascript",
+  "framework": "tanstack-start",
+  "type": "fullstack",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "TanStack Start full-stack React starter."
+}

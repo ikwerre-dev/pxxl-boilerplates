@@ -1,0 +1,13 @@
+{
+  "id": "javascript/react-vite",
+  "name": "React Vite",
+  "language": "javascript",
+  "framework": "react",
+  "type": "static",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": null,
+  "healthPath": null,
+  "outputDirectory": "dist",
+  "description": "React SPA built with Vite."
+}

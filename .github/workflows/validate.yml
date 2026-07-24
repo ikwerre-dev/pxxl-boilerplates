@@ -1,0 +1,79 @@
+name: Validate boilerplates
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+
+  go:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        starter:
+          - standard-library
+          - gin
+          - fiber
+          - echo
+          - chi
+          - gorilla-mux
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+          cache-dependency-path: go/${{ matrix.starter }}/go.mod
+      - working-directory: go/${{ matrix.starter }}
+        run: go build ./...
+
+  rust:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        starter: [axum, actix-web, rocket, warp]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - working-directory: rust/${{ matrix.starter }}
+        run: cargo check
+
+  javascript:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        starter:
+          - react-vite
+          - vue-vite
+          - svelte-vite
+          - solid-vite
+          - preact-vite
+          - astro-static
+          - tanstack-router-static
+          - nextjs
+          - nuxt
+          - sveltekit
+          - tanstack-start
+          - angular
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - working-directory: javascript/${{ matrix.starter }}
+        run: npm install --no-audit --no-fund
+      - working-directory: javascript/${{ matrix.starter }}
+        run: npm run build

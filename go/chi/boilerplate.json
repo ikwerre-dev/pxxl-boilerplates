@@ -1,0 +1,13 @@
+{
+  "id": "go/chi",
+  "name": "Chi",
+  "language": "go",
+  "framework": "chi",
+  "type": "api",
+  "runtime": "go",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Chi Go API starter."
+}

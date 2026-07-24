@@ -1,0 +1,1 @@
+import { render } from "preact"; import "./style.css"; const App=()=> <main><span class="eyebrow">Pxxl boilerplate</span><h1>Preact + Vite</h1><p>A tiny static Preact starter.</p><div class="status"><span class="dot"/>Static edge ready</div></main>; render(<App/>, document.getElementById("app"));

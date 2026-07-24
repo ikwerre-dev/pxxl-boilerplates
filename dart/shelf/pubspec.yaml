@@ -1,0 +1,6 @@
+name: pxxl_shelf
+environment:
+  sdk: ^3.8.0
+dependencies:
+  shelf: ^1.4.2
+  shelf_router: ^1.1.4

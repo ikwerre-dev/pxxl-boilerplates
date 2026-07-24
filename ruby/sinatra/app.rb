@@ -1,0 +1,1 @@
+require "sinatra";require "json";set :bind,"0.0.0.0";set :port,ENV.fetch("PORT",4567);before{content_type :json};get("/"){{service:"Pxxl Sinatra API"}.to_json};get("/health"){{status:"ok"}.to_json};get("/api"){{message:"Hello from Sinatra"}.to_json}

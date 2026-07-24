@@ -1,0 +1,1 @@
+var builder=WebApplication.CreateBuilder(args);builder.Services.AddControllersWithViews();var app=builder.Build();app.UseStaticFiles();app.MapGet("/health",()=>Results.Ok(new{status="ok"}));app.MapGet("/api",()=>Results.Ok(new{message="Hello from ASP.NET MVC"}));app.MapDefaultControllerRoute();app.Run();

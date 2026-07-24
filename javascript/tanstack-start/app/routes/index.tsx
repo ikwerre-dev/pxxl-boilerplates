@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; export const Route=createFileRoute("/")({component:()=> <main><span className="eyebrow">Pxxl boilerplate</span><h1>TanStack Start</h1><p>Full-stack, type-safe React.</p><div className="status"><span className="dot"/>Runtime ready</div></main>});

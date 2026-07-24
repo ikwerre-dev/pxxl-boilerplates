@@ -1,0 +1,13 @@
+{
+  "id": "jvm/micronaut-java",
+  "name": "Micronaut Java",
+  "language": "jvm",
+  "framework": "micronaut",
+  "type": "api",
+  "runtime": "jvm",
+  "packageManager": null,
+  "port": 8080,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Micronaut Java REST API."
+}

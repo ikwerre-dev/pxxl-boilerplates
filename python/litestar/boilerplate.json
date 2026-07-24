@@ -1,0 +1,13 @@
+{
+  "id": "python/litestar",
+  "name": "Litestar",
+  "language": "python",
+  "framework": "litestar",
+  "type": "api",
+  "runtime": "python",
+  "packageManager": null,
+  "port": 8000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "Litestar async API."
+}
