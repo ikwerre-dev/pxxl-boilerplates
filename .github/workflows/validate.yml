@@ -1,5 +1,9 @@
 name: Validate boilerplates
 
+concurrency:
+  group: boilerplates-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
   pull_request:
@@ -52,6 +56,9 @@ jobs:
 
   javascript:
     runs-on: ubuntu-latest
+    env:
+      CI: "true"
+      NG_CLI_ANALYTICS: "false"
     strategy:
       fail-fast: false
       matrix:
