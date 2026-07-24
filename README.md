@@ -2,6 +2,8 @@
 
 Production-shaped starter projects for every language family supported by the Pxxl build system.
 
+Read the complete [languages, frameworks, local-development, and deployment guide](./docs/GUIDE.md).
+
 ## What every starter guarantees
 
 - A minimal, understandable project with no demo secrets.
