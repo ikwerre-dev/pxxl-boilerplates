@@ -152,13 +152,15 @@ const viteFiles = (framework, dependencies, devDependencies, main, app) => ({
 add("javascript", "react-vite", { type: "static", runtime: "node", framework: "react", packageManager: "npm", outputDirectory: "dist", description: "React SPA built with Vite." }, viteFiles("react-vite", { react: "^19.1.0", "react-dom": "^19.1.0" }, { "@vitejs/plugin-react": "^4.5.0", vite: "^7.0.0" }, "/src/main.jsx", `import React from "react"; import { createRoot } from "react-dom/client"; import "./style.css";\nfunction App(){return <main><span className="eyebrow">Pxxl boilerplate</span><h1>React + Vite</h1><p>A fast static React starter.</p><div className="status"><span className="dot"/>Static edge ready</div></main>}; createRoot(document.getElementById("app")).render(<App/>);`));
 add("javascript", "vue-vite", { type: "static", runtime: "node", framework: "vue", packageManager: "npm", outputDirectory: "dist", description: "Vue SPA built with Vite." }, {
   "package.json": nodePackage("vue-vite", { vue: "^3.5.0", vite: "^7.0.0", "@vitejs/plugin-vue": "^6.0.0" }, { dev: "vite", build: "vite build", start: "vite preview --host 0.0.0.0 --port $PORT" }),
+  "vite.config.js": `import { defineConfig } from "vite"; import vue from "@vitejs/plugin-vue"; export default defineConfig({ plugins: [vue()] });`,
   "index.html": `<div id="app"></div><script type="module" src="/src/main.js"></script>`,
   "src/main.js": `import { createApp } from "vue"; import "./style.css"; import App from "./App.vue"; createApp(App).mount("#app");`,
   "src/App.vue": `<template><main><span class="eyebrow">Pxxl boilerplate</span><h1>Vue + Vite</h1><p>A fast static Vue starter.</p><div class="status"><span class="dot"/>Static edge ready</div></main></template>`,
   "src/style.css": uiCss,
 });
 add("javascript", "svelte-vite", { type: "static", runtime: "node", framework: "svelte", packageManager: "npm", outputDirectory: "dist", description: "Svelte SPA built with Vite." }, {
-  "package.json": nodePackage("svelte-vite", { svelte: "^5.35.0", vite: "^7.0.0", "@sveltejs/vite-plugin-svelte": "^5.1.0" }, { dev: "vite", build: "vite build", start: "vite preview --host 0.0.0.0 --port $PORT" }),
+  "package.json": nodePackage("svelte-vite", { svelte: "^5.35.0", vite: "^6.0.0", "@sveltejs/vite-plugin-svelte": "^5.1.0" }, { dev: "vite", build: "vite build", start: "vite preview --host 0.0.0.0 --port $PORT" }),
+  "vite.config.js": `import { defineConfig } from "vite"; import { svelte } from "@sveltejs/vite-plugin-svelte"; export default defineConfig({ plugins: [svelte()] });`,
   "index.html": `<div id="app"></div><script type="module" src="/src/main.js"></script>`,
   "src/main.js": `import { mount } from "svelte"; import App from "./App.svelte"; import "./style.css"; mount(App, { target: document.getElementById("app") });`,
   "src/App.svelte": `<main><span class="eyebrow">Pxxl boilerplate</span><h1>Svelte + Vite</h1><p>A fast static Svelte starter.</p><div class="status"><span class="dot"></span>Static edge ready</div></main>`,
@@ -197,14 +199,14 @@ add("javascript", "nextjs", { type: "fullstack", runtime: "node", framework: "ne
   "app/style.css": uiCss,
 });
 add("javascript", "nuxt", { type: "fullstack", runtime: "node", framework: "nuxt", packageManager: "npm", port: 3000, description: "Nuxt full-stack starter with Nitro." }, {
-  "package.json": nodePackage("nuxt", { nuxt: "^3.17.0", vue: "^3.5.0" }, { dev: "nuxt dev", build: "nuxt build", start: "node .output/server/index.mjs" }),
+  "package.json": nodePackage("nuxt", { nuxt: "3.17.5", vue: "3.5.17" }, { dev: "nuxt dev", build: "nuxt build", start: "node .output/server/index.mjs" }),
   "nuxt.config.ts": `export default defineNuxtConfig({ compatibilityDate: "2025-05-15", devtools: { enabled: false } });`,
   "app.vue": `<template><main><span class="eyebrow">Pxxl boilerplate</span><h1>Nuxt</h1><p>Vue full-stack deployment.</p><div class="status"><span class="dot"/>Runtime ready</div></main></template><style>${uiCss}</style>`,
   "server/routes/health.get.ts": `export default defineEventHandler(() => ({ status: "ok" }));`,
   "server/routes/api.get.ts": `export default defineEventHandler(() => ({ message: "Hello from Nuxt" }));`,
 });
 add("javascript", "sveltekit", { type: "fullstack", runtime: "node", framework: "sveltekit", packageManager: "npm", port: 3000, description: "SvelteKit server application using the Node adapter." }, {
-  "package.json": nodePackage("sveltekit", { "@sveltejs/adapter-node": "^5.2.0", "@sveltejs/kit": "^2.22.0", svelte: "^5.35.0", vite: "^7.0.0" }, { dev: "vite dev", build: "vite build", start: "node build" }),
+  "package.json": nodePackage("sveltekit", { "@sveltejs/adapter-node": "^5.2.0", "@sveltejs/kit": "2.22.0", "@sveltejs/vite-plugin-svelte": "^5.1.0", svelte: "^5.35.0", vite: "^6.0.0" }, { dev: "vite dev", build: "vite build", start: "node build" }),
   "svelte.config.js": `import adapter from "@sveltejs/adapter-node"; export default { kit: { adapter: adapter() } };`,
   "src/routes/+page.svelte": `<svelte:head><title>SvelteKit · Pxxl</title></svelte:head><main><span class="eyebrow">Pxxl boilerplate</span><h1>SvelteKit</h1><p>A server-rendered Svelte starter.</p><div class="status"><span class="dot"></span>Runtime ready</div></main><style>${uiCss}</style>`,
   "src/routes/health/+server.js": `export function GET(){return Response.json({status:"ok"})}`,
@@ -212,7 +214,7 @@ add("javascript", "sveltekit", { type: "fullstack", runtime: "node", framework: 
 });
 add("javascript", "tanstack-start", { type: "fullstack", runtime: "node", framework: "tanstack-start", packageManager: "npm", port: 3000, description: "TanStack Start full-stack React starter." }, {
   "package.json": nodePackage("tanstack-start", { "@tanstack/react-router": "^1.130.0", "@tanstack/react-start": "^1.130.0", "@tanstack/router-plugin": "^1.130.0", react: "^19.1.0", "react-dom": "^19.1.0", vite: "^7.0.0" }, { dev: "vite dev", build: "vite build", start: "node .output/server/index.mjs" }),
-  "app.config.ts": `import { defineConfig } from "@tanstack/react-start/config"; export default defineConfig({});`,
+  "vite.config.ts": `import { defineConfig } from "vite"; import { tanstackStart } from "@tanstack/react-start/plugin/vite"; export default defineConfig({ plugins: [tanstackStart()] });`,
   "app/routes/__root.tsx": `import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router"; import "../style.css"; export const Route=createRootRoute({component:()=> <html><head><HeadContent/></head><body><Outlet/><Scripts/></body></html>});`,
   "app/routes/index.tsx": `import { createFileRoute } from "@tanstack/react-router"; export const Route=createFileRoute("/")({component:()=> <main><span className="eyebrow">Pxxl boilerplate</span><h1>TanStack Start</h1><p>Full-stack, type-safe React.</p><div className="status"><span className="dot"/>Runtime ready</div></main>});`,
   "app/routes/health.ts": `import { createFileRoute } from "@tanstack/react-router"; export const Route=createFileRoute("/health")({server:{handlers:{GET:()=>Response.json({status:"ok"})}}});`,
@@ -220,7 +222,7 @@ add("javascript", "tanstack-start", { type: "fullstack", runtime: "node", framew
   "app/style.css": uiCss,
 });
 add("javascript", "angular", { type: "static", runtime: "node", framework: "angular", packageManager: "npm", outputDirectory: "dist/browser", description: "Angular standalone application." }, {
-  "package.json": nodePackage("angular", { "@angular/animations": "^20.0.0", "@angular/common": "^20.0.0", "@angular/compiler": "^20.0.0", "@angular/core": "^20.0.0", "@angular/platform-browser": "^20.0.0", "@angular/router": "^20.0.0", rxjs: "^7.8.0", tslib: "^2.8.0", "zone.js": "^0.15.0", "@angular-devkit/build-angular": "^20.0.0", "@angular/cli": "^20.0.0", typescript: "^5.8.0" }, { dev: "ng serve", build: "ng build", start: "ng serve --host 0.0.0.0 --port $PORT" }),
+  "package.json": nodePackage("angular", { "@angular/animations": "20.1.8", "@angular/common": "20.1.8", "@angular/compiler": "20.1.8", "@angular/core": "20.1.8", "@angular/platform-browser": "20.1.8", "@angular/router": "20.1.8", rxjs: "^7.8.0", tslib: "^2.8.0", "zone.js": "^0.15.0", "@angular-devkit/build-angular": "20.1.8", "@angular/cli": "20.1.8", typescript: "~5.8.2" }, { dev: "ng serve", build: "ng build", start: "ng serve --host 0.0.0.0 --port $PORT" }),
   "angular.json": json({ version: 1, projects: { app: { projectType: "application", root: "", sourceRoot: "src", architect: { build: { builder: "@angular-devkit/build-angular:application", options: { outputPath: "dist", index: "src/index.html", browser: "src/main.ts", styles: ["src/styles.css"] } } } } } }),
   "tsconfig.json": json({ compilerOptions: { target: "ES2022", module: "ES2022", moduleResolution: "bundler", experimentalDecorators: true }, angularCompilerOptions: { strictTemplates: true } }),
   "src/index.html": `<div id="app"></div>`,

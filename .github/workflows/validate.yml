@@ -36,7 +36,7 @@ jobs:
           go-version: "1.24"
           cache-dependency-path: go/${{ matrix.starter }}/go.mod
       - working-directory: go/${{ matrix.starter }}
-        run: go build ./...
+        run: go mod tidy && go build ./...
 
   rust:
     runs-on: ubuntu-latest
