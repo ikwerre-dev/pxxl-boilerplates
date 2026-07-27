@@ -1,0 +1,13 @@
+{
+  "id": "javascript/function",
+  "name": "Function",
+  "language": "javascript",
+  "framework": "javascript-function",
+  "type": "api",
+  "runtime": "node",
+  "packageManager": "npm",
+  "port": 3000,
+  "healthPath": "/health",
+  "outputDirectory": null,
+  "description": "JavaScript function using the Pxxl request adapter."
+}

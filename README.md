@@ -15,7 +15,7 @@ Read the complete [languages, frameworks, local-development, and deployment guid
 
 ## Catalog
 
-**57 starters across 10 supported language families.**
+**58 starters across 10 supported language families.**
 
 ## Dart (3)
 
@@ -45,7 +45,7 @@ Read the complete [languages, frameworks, local-development, and deployment guid
 | [Gorilla Mux](./go/gorilla-mux) | api | gorilla-mux | go |
 | [Standard Library](./go/standard-library) | api | net-http | go |
 
-## Javascript (18)
+## Javascript (19)
 
 | Starter | Type | Framework | Runtime |
 |---|---|---|---|
@@ -53,6 +53,7 @@ Read the complete [languages, frameworks, local-development, and deployment guid
 | [Astro Static](./javascript/astro-static) | static | astro | node |
 | [Express](./javascript/express) | api | express | node |
 | [Fastify](./javascript/fastify) | api | fastify | node |
+| [Function](./javascript/function) | api | javascript-function | node |
 | [Hono](./javascript/hono) | api | hono | node |
 | [Koa](./javascript/koa) | api | koa | node |
 | [Nestjs](./javascript/nestjs) | api | nestjs | node |

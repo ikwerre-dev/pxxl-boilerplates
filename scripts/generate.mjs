@@ -107,6 +107,20 @@ add("javascript", "node-api", { type: "api", runtime: "node", framework: "node",
   res.end(JSON.stringify({ service: "Pxxl Node API" }));
 });`, `server.listen(port, "0.0.0.0", () => console.log(\`Listening on :\${port}\`));`),
 });
+add("javascript", "function", { type: "api", runtime: "node", framework: "javascript-function", packageManager: "npm", port: 3000, healthPath: "/health", description: "JavaScript function using the Pxxl request adapter." }, {
+  "package.json": nodePackage("function", {}),
+  "api/index.mjs": `export default function handler(request) {
+  const url = new URL(request.url);
+  return Response.json({
+    service: "Pxxl JavaScript Function",
+    status: url.pathname === "/health" ? "ok" : "ready",
+    message: url.pathname === "/api" ? "Hello from a Pxxl function" : undefined,
+    method: request.method,
+    path: url.pathname
+  });
+}
+`,
+});
 add("javascript", "express", { type: "api", runtime: "node", framework: "express", packageManager: "npm", port: 3000, description: "Express REST API with health and example routes." }, {
   "package.json": nodePackage("express", { express: "^5.1.0" }, { start: "node server.js" }),
   "server.js": nodeApi(`import express from "express";`, `const app = express();
@@ -254,7 +268,7 @@ add("python", "django", { type: "api", runtime: "python", framework: "django", p
 });
 add("python", "litestar", { type: "api", runtime: "python", framework: "litestar", port: 8000, description: "Litestar async API." }, {
   "requirements.txt": `litestar[standard]>=2.16`,
-  "app.py": `from litestar import Litestar, get\n@get("/")\nasync def root(): return {"service":"Pxxl Litestar API"}\n@get("/health")\nasync def health(): return {"status":"ok"}\n@get("/api")\nasync def api(): return {"message":"Hello from Litestar"}\napp=Litestar([root,health,api])`,
+  "app.py": `from litestar import Litestar, get\n@get("/")\nasync def root() -> dict[str, str]: return {"service":"Pxxl Litestar API"}\n@get("/health")\nasync def health() -> dict[str, str]: return {"status":"ok"}\n@get("/api")\nasync def api() -> dict[str, str]: return {"message":"Hello from Litestar"}\napp=Litestar([root,health,api])`,
   "pxxl.toml": `[build]\nstartCommand = "litestar run --host 0.0.0.0 --port $PORT"`,
 });
 add("python", "starlette", { type: "api", runtime: "python", framework: "starlette", port: 8000, description: "Small ASGI API with Starlette." }, {
@@ -317,7 +331,7 @@ add("php", "codeigniter", { type: "api", runtime: "php", framework: "codeigniter
 });
 
 add("ruby", "sinatra", { type: "api", runtime: "ruby", framework: "sinatra", port: 4567, description: "Sinatra JSON API." }, {
-  "Gemfile": `source "https://rubygems.org"\ngem "sinatra", "~> 4.1"\ngem "puma", "~> 6.6"`,
+  "Gemfile": `source "https://rubygems.org"\ngem "sinatra", "~> 4.1"\ngem "puma", "~> 6.6"\ngem "rackup", "~> 2.2"`,
   "app.rb": `require "sinatra";require "json";set :bind,"0.0.0.0";set :port,ENV.fetch("PORT",4567);before{content_type :json};get("/"){{service:"Pxxl Sinatra API"}.to_json};get("/health"){{status:"ok"}.to_json};get("/api"){{message:"Hello from Sinatra"}.to_json}`,
   "pxxl.toml": `[build]\nstartCommand = "ruby app.rb"`,
 });
@@ -365,21 +379,21 @@ add("jvm", "ktor-kotlin", { type: "api", runtime: "jvm", framework: "ktor", port
   "src/main/kotlin/dev/pxxl/Application.kt": `package dev.pxxl\nimport io.ktor.server.application.*\nimport io.ktor.server.engine.*\nimport io.ktor.server.netty.*\nimport io.ktor.server.response.*\nimport io.ktor.server.routing.*\nfun main(){val port=System.getenv("PORT")?.toIntOrNull()?:8080;embeddedServer(Netty,port=port,host="0.0.0.0"){routing{get("/"){call.respondText("""{"service":"Pxxl Ktor API"}""")};get("/health"){call.respondText("""{"status":"ok"}""")};get("/api"){call.respondText("""{"message":"Hello from Ktor"}""")}}}.start(wait=true)}`,
 });
 add("jvm", "quarkus-java", { type: "api", runtime: "jvm", framework: "quarkus", port: 8080, description: "Quarkus REST API." }, {
-  "pom.xml": `<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion><groupId>dev.pxxl</groupId><artifactId>quarkus-api</artifactId><version>1.0.0</version><properties><quarkus.platform.version>3.24.2</quarkus.platform.version><maven.compiler.release>21</maven.compiler.release></properties><dependencyManagement><dependencies><dependency><groupId>io.quarkus.platform</groupId><artifactId>quarkus-bom</artifactId><version>\${quarkus.platform.version}</version><type>pom</type><scope>import</scope></dependency></dependencies></dependencyManagement><dependencies><dependency><groupId>io.quarkus</groupId><artifactId>quarkus-rest-jackson</artifactId></dependency></dependencies><build><plugins><plugin><groupId>io.quarkus</groupId><artifactId>quarkus-maven-plugin</artifactId><version>\${quarkus.platform.version}</version><extensions>true</extensions><executions><execution><goals><goal>build</goal></goals></execution></executions></plugin></plugins></build></project>`,
+  "pom.xml": `<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion><groupId>dev.pxxl</groupId><artifactId>quarkus-api</artifactId><version>1.0.0</version><properties><quarkus.platform.version>3.24.2</quarkus.platform.version><maven.compiler.release>21</maven.compiler.release></properties><dependencyManagement><dependencies><dependency><groupId>io.quarkus.platform</groupId><artifactId>quarkus-bom</artifactId><version>\${quarkus.platform.version}</version><type>pom</type><scope>import</scope></dependency></dependencies></dependencyManagement><dependencies><dependency><groupId>io.quarkus</groupId><artifactId>quarkus-rest-jackson</artifactId></dependency></dependencies><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.14.0</version><configuration><release>\${maven.compiler.release}</release></configuration></plugin><plugin><groupId>io.quarkus</groupId><artifactId>quarkus-maven-plugin</artifactId><version>\${quarkus.platform.version}</version><extensions>true</extensions><executions><execution><goals><goal>build</goal></goals></execution></executions></plugin></plugins></build></project>`,
   "src/main/java/dev/pxxl/Resource.java": `package dev.pxxl;import jakarta.ws.rs.*;import jakarta.ws.rs.core.MediaType;import java.util.Map;@Path("/")@Produces(MediaType.APPLICATION_JSON)public class Resource{@GET public Map<String,String>root(){return Map.of("service","Pxxl Quarkus API");}@GET@Path("health")public Map<String,String>health(){return Map.of("status","ok");}@GET@Path("api")public Map<String,String>api(){return Map.of("message","Hello from Quarkus");}}`,
 });
 add("jvm", "micronaut-java", { type: "api", runtime: "jvm", framework: "micronaut", port: 8080, description: "Micronaut Java REST API." }, {
   "settings.gradle": `pluginManagement { repositories { gradlePluginPortal(); mavenCentral() } }\nrootProject.name="pxxl-micronaut"`,
-  "build.gradle": `plugins { id("io.micronaut.application") version "4.5.4" }\nrepositories { mavenCentral() }\nmicronaut { runtime("netty"); testRuntime("junit5"); processing { incremental(true); annotations("dev.pxxl.*") } }\napplication { mainClass="dev.pxxl.Application" }\njava { sourceCompatibility=JavaVersion.toVersion("21") }\ndependencies { annotationProcessor("io.micronaut:micronaut-http-validation"); implementation("io.micronaut:micronaut-http-server-netty"); runtimeOnly("ch.qos.logback:logback-classic") }`,
+  "build.gradle": `plugins { id("io.micronaut.application") version "4.5.4" }\nrepositories { mavenCentral() }\nmicronaut { version("4.9.3"); runtime("netty"); testRuntime("junit5"); processing { incremental(true); annotations("dev.pxxl.*") } }\napplication { mainClass="dev.pxxl.Application" }\njava { sourceCompatibility=JavaVersion.toVersion("21") }\ndependencies { annotationProcessor("io.micronaut:micronaut-http-validation"); implementation("io.micronaut:micronaut-http-server-netty"); runtimeOnly("ch.qos.logback:logback-classic") }`,
   "src/main/java/dev/pxxl/Application.java": `package dev.pxxl;import io.micronaut.runtime.Micronaut;public class Application{public static void main(String[]args){Micronaut.run(Application.class,args);}}`,
-  "src/main/java/dev/pxxl/Controller.java": `package dev.pxxl;import io.micronaut.http.annotation.*;import java.util.Map;@Controller public class Controller{@Get("/")Map<String,String>root(){return Map.of("service","Pxxl Micronaut API");}@Get("/health")Map<String,String>health(){return Map.of("status","ok");}@Get("/api")Map<String,String>api(){return Map.of("message","Hello from Micronaut");}}`,
+  "src/main/java/dev/pxxl/Controller.java": `package dev.pxxl;import io.micronaut.http.annotation.Get;import java.util.Map;@io.micronaut.http.annotation.Controller public class Controller{@Get("/")Map<String,String>root(){return Map.of("service","Pxxl Micronaut API");}@Get("/health")Map<String,String>health(){return Map.of("status","ok");}@Get("/api")Map<String,String>api(){return Map.of("message","Hello from Micronaut");}}`,
 });
 add("jvm", "vertx-java", { type: "api", runtime: "jvm", framework: "vertx", port: 8080, description: "Vert.x reactive Java API." }, {
-  "pom.xml": `<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion><groupId>dev.pxxl</groupId><artifactId>vertx-api</artifactId><version>1.0.0</version><properties><maven.compiler.release>21</maven.compiler.release></properties><dependencies><dependency><groupId>io.vertx</groupId><artifactId>vertx-web</artifactId><version>4.5.16</version></dependency></dependencies><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>3.6.0</version><executions><execution><phase>package</phase><goals><goal>shade</goal></goals><configuration><transformers><transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"><mainClass>dev.pxxl.Application</mainClass></transformer></transformers></configuration></execution></executions></plugin></plugins></build></project>`,
-  "src/main/java/dev/pxxl/Application.java": `package dev.pxxl;import io.vertx.core.*;import io.vertx.ext.web.Router;public class Application{public static void main(String[]args){Vertx v=Vertx.vertx();Router r=Router.router(v);r.get("/").handler(c->c.json(new JsonObject().put("service","Pxxl Vertx API")));r.get("/health").handler(c->c.json(new JsonObject().put("status","ok")));r.get("/api").handler(c->c.json(new JsonObject().put("message","Hello from Vertx")));int p=Integer.parseInt(System.getenv().getOrDefault("PORT","8080"));v.createHttpServer().requestHandler(r).listen(p,"0.0.0.0");}}`,
+  "pom.xml": `<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion><groupId>dev.pxxl</groupId><artifactId>vertx-api</artifactId><version>1.0.0</version><properties><maven.compiler.release>21</maven.compiler.release></properties><dependencies><dependency><groupId>io.vertx</groupId><artifactId>vertx-web</artifactId><version>4.5.16</version></dependency></dependencies><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.14.0</version><configuration><release>\${maven.compiler.release}</release></configuration></plugin><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>3.6.0</version><executions><execution><phase>package</phase><goals><goal>shade</goal></goals><configuration><transformers><transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"><mainClass>dev.pxxl.Application</mainClass></transformer></transformers></configuration></execution></executions></plugin></plugins></build></project>`,
+  "src/main/java/dev/pxxl/Application.java": `package dev.pxxl;import io.vertx.core.*;import io.vertx.core.json.JsonObject;import io.vertx.ext.web.Router;public class Application{public static void main(String[]args){Vertx v=Vertx.vertx();Router r=Router.router(v);r.get("/").handler(c->c.json(new JsonObject().put("service","Pxxl Vertx API")));r.get("/health").handler(c->c.json(new JsonObject().put("status","ok")));r.get("/api").handler(c->c.json(new JsonObject().put("message","Hello from Vertx")));int p=Integer.parseInt(System.getenv().getOrDefault("PORT","8080"));v.createHttpServer().requestHandler(r).listen(p,"0.0.0.0");}}`,
 });
 
-const csproj = (sdk = "Microsoft.NET.Sdk.Web") => `<Project Sdk="${sdk}"><PropertyGroup><TargetFramework>net9.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup></Project>`;
+const csproj = (sdk = "Microsoft.NET.Sdk.Web") => `<Project Sdk="${sdk}"><PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup></Project>`;
 add("dotnet", "minimal-api", { type: "api", runtime: "dotnet", framework: "aspnetcore", port: 8080, description: "ASP.NET Core Minimal API." }, {
   "Pxxl.Api.csproj": csproj(),
   "Program.cs": `var builder=WebApplication.CreateBuilder(args);var app=builder.Build();app.MapGet("/",()=>Results.Ok(new{service="Pxxl .NET Minimal API"}));app.MapGet("/health",()=>Results.Ok(new{status="ok"}));app.MapGet("/api",()=>Results.Ok(new{message="Hello from .NET"}));app.Run();`,
@@ -403,7 +417,7 @@ add("dotnet", "blazor-server", { type: "fullstack", runtime: "dotnet", framework
   "Program.cs": `using Pxxl.Blazor.Components;var builder=WebApplication.CreateBuilder(args);builder.Services.AddRazorComponents().AddInteractiveServerComponents();var app=builder.Build();app.UseStaticFiles();app.MapGet("/health",()=>Results.Ok(new{status="ok"}));app.MapGet("/api",()=>Results.Ok(new{message="Hello from Blazor"}));app.MapRazorComponents<App>().AddInteractiveServerRenderMode();app.Run();`,
   "Components/App.razor": `<!doctype html><html><head><title>Blazor · Pxxl</title><link rel="stylesheet" href="/style.css"><HeadOutlet/></head><body><Routes/><script src="_framework/blazor.web.js"></script></body></html>`,
   "Components/Routes.razor": `<Router AppAssembly="typeof(Program).Assembly"><Found Context="routeData"><RouteView RouteData="routeData"/></Found></Router>`,
-  "Components/Pages/Home.razor": `@page "/"<main><span class="eyebrow">Pxxl boilerplate</span><h1>Blazor</h1><p>Interactive .NET on the server.</p><div class="status"><span class="dot"></span>Runtime ready</div></main>`,
+  "Components/Pages/Home.razor": `@page "/"\n\n<main><span class="eyebrow">Pxxl boilerplate</span><h1>Blazor</h1><p>Interactive .NET on the server.</p><div class="status"><span class="dot"></span>Runtime ready</div></main>`,
   "Components/_Imports.razor": `@using Microsoft.AspNetCore.Components.Routing\n@using Microsoft.AspNetCore.Components.Web\n@using static Microsoft.AspNetCore.Components.Web.RenderMode`,
   "wwwroot/style.css": uiCss,
 });
@@ -418,7 +432,7 @@ add("dart", "dart-frog", { type: "api", runtime: "dart", framework: "dart-frog",
   "routes/index.dart": `import 'package:dart_frog/dart_frog.dart';Response onRequest(RequestContext context)=>Response.json(body:{'service':'Pxxl Dart Frog API'});`,
   "routes/health.dart": `import 'package:dart_frog/dart_frog.dart';Response onRequest(RequestContext context)=>Response.json(body:{'status':'ok'});`,
   "routes/api.dart": `import 'package:dart_frog/dart_frog.dart';Response onRequest(RequestContext context)=>Response.json(body:{'message':'Hello from Dart Frog'});`,
-  "pxxl.toml": `[build]\nbuildCommand = "dart_frog build"\nstartCommand = "dart build/bin/server.dart --port $PORT --hostname 0.0.0.0"`,
+  "pxxl.toml": `[build]\nbuildCommand = "dart run dart_frog_cli:dart_frog build"\nstartCommand = "dart build/bin/server.dart --port $PORT --hostname 0.0.0.0"`,
 });
 add("dart", "flutter-web", { type: "static", runtime: "dart", framework: "flutter", outputDirectory: "build/web", description: "Flutter web static application." }, {
   "pubspec.yaml": `name: pxxl_flutter_web\ndescription: Flutter web starter for Pxxl\npublish_to: none\nversion: 1.0.0+1\nenvironment:\n  sdk: ^3.8.0\ndependencies:\n  flutter:\n    sdk: flutter\nflutter:\n  uses-material-design: true`,

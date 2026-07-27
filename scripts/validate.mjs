@@ -5,7 +5,7 @@ const root = path.resolve(import.meta.dirname, "..");
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "catalog.json"), "utf8"));
 const ids = new Set();
 const errors = [];
-const apiSourceExtensions = new Set([".js", ".jsx", ".ts", ".tsx", ".py", ".go", ".php", ".rb", ".rs", ".java", ".kt", ".cs", ".dart"]);
+const apiSourceExtensions = new Set([".js", ".mjs", ".jsx", ".ts", ".tsx", ".py", ".go", ".php", ".rb", ".rs", ".java", ".kt", ".cs", ".dart"]);
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
